@@ -28,7 +28,7 @@ pipeline {
             steps {
                 withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
                     sh """
-                        mvn sonar:sonar \
+                        mvn org.sonarsource.scanner.maven:sonar-maven-plugin:4.0.0.4121:sonar \
                           -Dsonar.projectKey=leave-service-${BITSID} \
                           -Dsonar.projectName="leave-service-${BITSID}" \
                           -Dsonar.host.url=${SONAR_HOST} \
